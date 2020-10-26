@@ -956,6 +956,9 @@ describe "A Java primitive Array of type" do
 
       expect(arr.length).to eq(2)
 
+      p java.lang.System.identityHashCode(arr[0])
+      p java.lang.System.identityHashCode(h1)
+
       expect(arr[0]).to be_equal(h1)
       expect(arr[1]).to be_equal(h2)
     end

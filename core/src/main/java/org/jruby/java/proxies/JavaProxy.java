@@ -314,7 +314,14 @@ public class JavaProxy extends RubyObject {
     @Override
     @JRubyMethod(name = "equal?")
     public IRubyObject equal_p(ThreadContext context, IRubyObject other) {
+        System.out.println("this: " + inspect());
+        System.out.println("other: " + other.inspect());
+        System.out.println("this class: " + getClass());
+        System.out.println("other class: " + other.getClass());
+        System.out.println("this object class: " + this.getObject().getClass());
+
         if ( other instanceof JavaProxy ) {
+            System.out.println("other object class: " + ((JavaProxy) other).getObject().getClass());
             boolean equal = getObject() == ((JavaProxy) other).getObject();
             return RubyBoolean.newBoolean(context, equal);
         }
